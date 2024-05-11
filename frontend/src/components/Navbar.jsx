@@ -26,6 +26,24 @@ const Navbar = () => {
           <NavbarItems key={item + index} title={item} />
         ))}
       </ul>
+      <div>
+        {toggleMenu ? (
+          <AiOutlineClose
+          fontSize={28}
+          className="text-white md:hidden cursor-pointer"
+          onClick={() => setToggleMenu(true)}
+          
+          />
+
+        ) : (
+          <HiMenuAlt4
+          fontSize={28}
+          className="text-white md:hidden cursor-pointer"
+          onClick={() => setToggleMenu(true)}
+          />
+          
+        )}
+      </div>
     </nav>
   );
 };
