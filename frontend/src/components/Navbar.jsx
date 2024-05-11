@@ -1,17 +1,17 @@
 'use client'
-import { HiMenuAlt4 } from "react-icons/hi";
-import { AiOutlineClose } from "react-icons/ai";
-import Logo from "../assets/adejare.jpg";
-import Image from "next/image";
-import { useState } from "react";
+import React from 'react';
+import { useState } from 'react';
+import { HiMenuAlt4 } from 'react-icons/hi';
+import { AiOutlineClose } from 'react-icons/ai';
+import Logo from '../assets/adejare.jpg';
+import Image from 'next/image';
 
 const NavbarItems = ({ title, classProps }) => {
-  return <li className={`mx-4 cursor pointer ${classProps}`}>{title}</li>;
+  return <li className={`mx-4 cursor-pointer ${classProps}`}>{title}</li>;
 };
 
 const NavBar = () => {
-
-  const { toggleMenu, setToggleMenu} = useState(false)
+  const [toggleMenu, setToggleMenu] = useState(false); // Changed to useState instead of just using useState
 
   return (
     <nav className="w-full flex md:justify-center justify-between items-center p-4">
@@ -25,7 +25,7 @@ const NavBar = () => {
         />
       </div>
       <ul className="text-white md:flex hidden list-none flex-row justify-between items-center flex-initial">
-        {["Market", "Exchange", "Trade", "Rates"].map((item, index) => (
+        {['Market', 'Exchange', 'Trade', 'Rates'].map((item, index) => (
           <NavbarItems key={item + index} title={item} />
         ))}
       </ul>
@@ -34,13 +34,13 @@ const NavBar = () => {
           <AiOutlineClose
             fontSize={28}
             className="text-white md:hidden cursor-pointer"
-            onClick={() => setToggleMenus(true)}
+            onClick={() => setToggleMenu(false)} // Fixed the function name here
           />
         ) : (
           <HiMenuAlt4
             fontSize={28}
             className="text-white md:hidden cursor-pointer"
-            onClick={() => setToggleMenu(true)}
+            onClick={() => setToggleMenu(true)} // Fixed the function name here
           />
         )}
 
@@ -50,7 +50,7 @@ const NavBar = () => {
               <AiOutlineClose onClick={() => setToggleMenu(false)} />
             </li>
 
-            {["Market", "Exchange", "Rates", "Trade", "Account"].map((item, index) => (
+            {['Market', 'Exchange', 'Rates', 'Trade', 'Account'].map((item, index) => (
               <NavbarItems
                 key={item + index}
                 title={item}
