@@ -5,6 +5,18 @@ import { BsInfoCircle } from "react-icons/bs";
 const commonStyles =
   "min-h-[70px] sm:px-0 px-2 sm:-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-white";
 
+  const Input = ({placeholder, name, value, type, handleChange}) => (
+    <Input
+    placeholder={placeholder}
+    type={type}
+    step='0.0001'
+    value={value}
+    onChange= {(e) => handleChange(e, name)}
+    className= 'my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism'
+    />
+
+  )
+
 const Welcome = () => {
   return (
     <div className="flex w-full justify-center items-center">
@@ -30,21 +42,28 @@ const Welcome = () => {
           </div>
         </div>
 
-        <div>
-          <div className="flex flex-col flex-1 items-start justify-start w-full mf:mt-0 mt-10">
-            <div className="p-3 justify-end items-start flex-col rounded-xl h-40 sm:w-72 w-full my-5 eth-card white-glassmorpism">
-              <div className="flex justify-between flex-col w-full h-full">
-                <div className="flex justify-between items-start">
-                  <div className="w-10 h-10 rounded-full border-2 border-white flex justify-center items-center">
-                    <SiEthereum fontSize={21} color="#fff" />
-                  </div>
-                  <BsInfoCircle fontSize={17} color="#fff" />
+        <div className="flex flex-col flex-1 items-start justify-start w-full mf:mt-0 mt-10">
+          <div className="p-3 justify-end items-start flex-col rounded-xl h-40 sm:w-72 w-full my-5 eth-card white-glassmorpism">
+            <div className="flex justify-between flex-col w-full h-full">
+              <div className="flex justify-between items-start">
+                <div className="w-10 h-10 rounded-full border-2 border-white flex justify-center items-center">
+                  <SiEthereum fontSize={21} color="#fff" />
                 </div>
+                <BsInfoCircle fontSize={17} color="#fff" />
               </div>
-              <p>
-                
-              </p>
+              <div>
+                <p className="text-black font-bold text-lg">
+                  0x595702603.......B6c73
+                </p>
+                <p className="text-white font-semibold text-lg mt-1">
+                  Ethereum
+                </p>
+              </div>
             </div>
+          </div>
+
+          <div>
+
           </div>
         </div>
       </div>
